@@ -1,10 +1,9 @@
 public class ResponsiveAI implements Runnable {
 
     private final int TIME;
+    private final int TASK;
     
     private static String finished = "Finished Tasks : ";
-
-    private final int TASK;
     
     public ResponsiveAI(int time, int task) {
         this.TIME = time;
@@ -20,8 +19,13 @@ public class ResponsiveAI implements Runnable {
             Runnable r = new ResponsiveAI(newInt, i);
             Thread t = new Thread(r);
             t.start();
-            System.out.println(finished);
+            resetFinished();
         }
+    }
+    
+    public static void resetFinished() {
+        System.out.println(finished);
+        finished = "Finished Tasks : ";
     }
     
     @Override
