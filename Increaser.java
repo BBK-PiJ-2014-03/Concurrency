@@ -15,7 +15,6 @@ public class Increaser implements Runnable {
             Thread t = new Thread(increaserTask);
             t.start();
         }
-        System.out.println("HERE");
         synchronized(obj) {
             obj.notifyAll();
         }

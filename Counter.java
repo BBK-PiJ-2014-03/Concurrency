@@ -1,10 +1,12 @@
+import java.util.concurrent.atomic.*;
+
 public class Counter {
-    private int n = 0;
+    private AtomicInteger n = new AtomicInteger(0);
     
     public void increase() {
-        n++;
+        n.incrementAndGet();
     }
     public int getCount() {
-        return n;
+        return n.get();
     }
 }
